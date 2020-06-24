@@ -1,0 +1,11 @@
+<div class="text-center container p-lg-5">
+    <ul class="list-group">
+        <div><img src="./img/_DSC2437CD.jpg" alt="Juan David Muñoz"></div>
+        <li class="list-group-item p-lg-5" *ngFor="let info of teem, index as i">
+
+            <h6>Nombre: {{info.nombre}}</h6>
+            <h6>apellido: {{info.Apellido}} </h6>
+            <a [routerLink]="['/equipo',i]" routerLinkActive="router-link-active">leer mas...</a>
+        </li>
+    </ul>
+</div>

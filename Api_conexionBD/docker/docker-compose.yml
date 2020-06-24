@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'tucomerciante'
+      # Usuario para no usar root
+      MYSQL_USER: 'root'
+      # Cambiar el password en producción
+      MYSQL_PASSWORD: 'root'
+      # Password de root por si se requiere
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      # Puerto expuesto : Puerto de Mysql en el contenedor, se cambio a 3397 para no chocar con el mysql local.
+      - '3397:3306'
+    expose:
+      # Exponemos el puerto 3306 desde el contenedor
+      - '3306'
+      # Aqui se guarda la información localmente para no perderla.
+    volumes:
+      - my-db:/var/lib/mysql
+# Creamos el volumen
+volumes:
+  my-db:
